@@ -1,5 +1,5 @@
 # Restaurant Class Ideas
-***Properties***
+**Properties**
 - Int waitTime
 - Double Rating
 - Double avgPrice
