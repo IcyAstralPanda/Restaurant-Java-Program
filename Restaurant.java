@@ -72,18 +72,17 @@ public class Restaurant {
     public void setWaitTime(int waitTime) {
         this.waitTime = waitTime;
     }
-    //        private String name;
-//        private int waitTime;
-//        private double rating;
-//        private double avgPrice;
-//        private double distance;
-//        private String hoursOpen;
+
     public String toString() {
-        return "Restaurant Name: " + name +
-                "\nWait Time: \t\t " + waitTime +
-                "\nRating: \t\t " + rating +
-                "\nAverage Price:\t " + avgPrice +
-                "\nDistance: \t\t " + distance +
-                "\nHours Open:\t\t " + hoursOpen;
+        String col1 = "%-17s ";
+        String nameFormat = String.format(col1 + "%-30s%n", "Name:", name);
+        String waitFormat = String.format(col1 + "%-5d%n", "Wait Time:", waitTime);
+        String ratingFormat = String.format(col1 + "%-5.2f%n", "Rating:", rating);
+        String avgFormat = String.format(col1 + "%-5.2f%n", "Average Price:", avgPrice);
+        String distFormat = String.format(col1 + "%-5.2f%n", "Distance:", distance);
+        String hoursFormat = String.format(col1 + "%-30s%n", "Open:", hoursOpen);
+
+        return nameFormat + waitFormat + ratingFormat + avgFormat + distFormat + hoursFormat;
+
     }
 }

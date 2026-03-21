@@ -1,28 +1,33 @@
-import javax.swing.JOptionPane;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Random;
+import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
+        ArrayList<Restaurant> restaurants = new ArrayList<>();
+        Random randy = new Random();
+        File file = new File("src/restaurants.txt");
+        Scanner scan = new Scanner(file);
+        scan.useDelimiter(",");
 
-        //Instantiate an ArrayList to hold Restaurant Objects
-        ArrayList<Restaurant> restaurantArrayList = new ArrayList<>();
+        while (scan.hasNext()) {
+            String name = scan.next();
+            int waitTime = scan.nextInt();
+            double rating = scan.nextDouble();
+            double avgPrice = scan.nextDouble();
+            double distance = scan.nextDouble();
+            String hoursOpen = scan.next();
 
-        // Take User Input using JOptionPane and store in a variable
-        String name = JOptionPane.showInputDialog("Please enter the name of desired Restaurant: ");
-        int waitTime = Integer.parseInt(JOptionPane.showInputDialog("Please enter Restaurant Wait Time in # of Minutes. ---> i.e (30): "));
-        double rating = Double.parseDouble(JOptionPane.showInputDialog("Please enter the Restaurant's rating i.e --> (4.3): "));
-        double avgPrice = Double.parseDouble(JOptionPane.showInputDialog("Please enter the average price of the Restaurant i.e --->(12.50): "));
-        double distance = Double.parseDouble(JOptionPane.showInputDialog("Please enter the distance of the Restaurant in Miles i.e ---> (5.7): "));
-        String hoursOpen = JOptionPane.showInputDialog("Please enter the hours of operation for the Restaurant, and please include holiday hours. i.e ---> (09:00am - 10:00pm)");
+            Restaurant restaurant = new Restaurant(name, waitTime, rating, avgPrice, distance, hoursOpen);
 
+            restaurants.add(restaurant);
+        }
 
-        // Instantiate Restaurant object with those variables
-        Restaurant userRestaurant = new Restaurant(name, waitTime, rating, avgPrice, distance, hoursOpen);
-        System.out.println(userRestaurant);
-
-
-        // Add Users Restaurant Object to the ArrayList
-        restaurantArrayList.add(userRestaurant);
+        int numRestaurants = restaurants.size();
+        int randIndex = randy.nextInt(numRestaurants - 1);
+        System.out.println(restaurants.get(randIndex));
     }
 }
 
