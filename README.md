@@ -43,18 +43,21 @@ and "import java.io.FileNotFoundException;" it makes it easier for the program t
 
 That's where the rest of the code comes in handy.
 
-            - while (scan.hasNext()) 
-            - String name = scan.next();
-            - int waitTime = scan.nextInt();
-            - double rating = scan.nextDouble();
-            - double avgPrice = scan.nextDouble();
-            - double distance = scan.nextDouble();
-            - String hoursOpen = scan.next();
-            - Restaurant restaurant = new Restaurant(name, waitTime, rating, avgPrice, distance, hoursOpen);
-            - restaurants.add(restaurant);
-            - int numRestaurants = restaurants.size();
-            - int randIndex = randy.nextInt(numRestaurants - 1);
-            - System.out.println(restaurants.get(randIndex));
+            while (scan.hasNext()) 
+            String name = scan.next();
+            int waitTime = scan.nextInt();
+            double rating = scan.nextDouble();
+            double avgPrice = scan.nextDouble();
+            double distance = scan.nextDouble();
+            String hoursOpen = scan.next();
+            
+            Restaurant restaurant = new Restaurant(name, waitTime, rating, avgPrice, distance, hoursOpen);
+            restaurants.add(restaurant);
+            
+            
+             int numRestaurants = restaurants.size();
+             int randIndex = randy.nextInt(numRestaurants - 1);
+             System.out.println(restaurants.get(randIndex));
 
 doing this will tell the code what to scan, what to look for, and let it choose a line to print. All within seconds.
 
