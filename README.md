@@ -42,24 +42,19 @@ and "import java.io.FileNotFoundException;" it makes it easier for the program t
 - When using "File file = new File("src/restaurants.txt");" we are declaring the file that we imported into the code or adding another section to it so the code can scan the file. Otherwise if it's not included it doesn't know what to scan, how to scan, or even where to scan.  A java.io.File object, ready to be used with file I/O classes like Scanner (what we used). java.io.File helps the File file = new file scan the current txt that we have imported and scans through it. Using the code Scanner scan = new Scanner(file); within the parentases we called "file" which was already called somewhere else. But how do we print what we want to print?
 
 That's where the rest of the code comes in handy.
-while (scan.hasNext()) {
-            String name = scan.next();
-            int waitTime = scan.nextInt();
-            double rating = scan.nextDouble();
-            double avgPrice = scan.nextDouble();
-            double distance = scan.nextDouble();
-            String hoursOpen = scan.next();
 
-            Restaurant restaurant = new Restaurant(name, waitTime, rating, avgPrice, distance, hoursOpen);
-
-            restaurants.add(restaurant);
-        }
-
-        int numRestaurants = restaurants.size();
-        int randIndex = randy.nextInt(numRestaurants - 1);
-        System.out.println(restaurants.get(randIndex));
-    }
-}
+            - while (scan.hasNext()) 
+            - String name = scan.next();
+            - int waitTime = scan.nextInt();
+            - double rating = scan.nextDouble();
+            - double avgPrice = scan.nextDouble();
+            - double distance = scan.nextDouble();
+            - String hoursOpen = scan.next();
+            - Restaurant restaurant = new Restaurant(name, waitTime, rating, avgPrice, distance, hoursOpen);
+            - restaurants.add(restaurant);
+            - int numRestaurants = restaurants.size();
+            - int randIndex = randy.nextInt(numRestaurants - 1);
+            - System.out.println(restaurants.get(randIndex));
 
 doing this will tell the code what to scan, what to look for, and let it choose a line to print. All within seconds.
 
